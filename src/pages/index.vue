@@ -31,6 +31,9 @@
           <div class="index-board-item-inner" >
             <h2>{{ item.title }}</h2>
             <p>{{ item.description }}</p>
+            <div class="index-board-button">
+              <div class="button">立即购买</div>
+            </div>
           </div>
         </div>
       </div>
