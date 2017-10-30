@@ -4,11 +4,13 @@
       <div class="index-left-block">
         <h2>全部产品</h2>
 
-        <h3>PC产品</h3>
-        <ul>
+        <template v-for="product in productList">
+          <h3>{{ product.title}}</h3>
+          <ul>
 
-        </ul>
-        <div class="hr"></div>
+          </ul>
+          <div class="hr"></div>
+        </template>
         <h3>应用类</h3>
         <ul>
 
@@ -35,17 +37,14 @@
             list: [{
               name: '数据统计',
               url: 'http://starcraft.com'
-            },
-            {
+            }, {
               name: '数据预测',
               url: 'http://warcraft.com'
-            },
-            {
+            }, {
               name: '流量分析',
               url: 'http://overwatch.com',
               hot: true
-            },
-            {
+            }, {
               name: '广告发布',
               url: 'http://hearstone.com'
             }]
@@ -55,17 +54,14 @@
             list: [{
               name: '91助手',
               url: 'http://weixin.com'
-            },
-            {
+            }, {
               name: '产品助手',
               url: 'http://twitter.com',
               hot: true
-            },
-            {
+            }, {
               name: '智能地图',
               url: 'http://maps.com'
-            },
-            {
+            }, {
               name: '团队语音',
               url: 'http://phone.com'
             }]
