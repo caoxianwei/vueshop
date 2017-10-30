@@ -18,6 +18,9 @@
       <div class="index-left-block lastest-news">
         <h2>最新消息</h2>
         <ul>
+          <li v-for="item in newList">
+            <a :href="item.url">{{item.title}}</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -30,6 +33,19 @@
   export default {
     data () {
       return {
+        newList: [{
+          title: '数据统计',
+          url: 'http://starcraft.com'
+        }, {
+          title: '数据预测',
+          url: 'http://warcraft.com'
+        }, {
+          title: '流量分析',
+          url: 'http://overwatch.com'
+        }, {
+          title: '广告发布',
+          url: 'http://hearstone.com'
+        }],
         productList: {
           pc: {
             title: 'PC产品',
