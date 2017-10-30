@@ -7,14 +7,13 @@
         <template v-for="product in productList">
           <h3>{{ product.title}}</h3>
           <ul>
-
+            <li v-for="item in product.list">
+              <a :href="item.url">{{item.name}}</a>
+              <span v-if="item.hot" class="hot-tag">HOT</span>
+            </li>
           </ul>
-          <div class="hr"></div>
+          <div v-if="!product.last" class="hr"></div>
         </template>
-        <h3>应用类</h3>
-        <ul>
-
-        </ul>
       </div>
       <div class="index-left-block lastest-news">
         <h2>最新消息</h2>
@@ -51,6 +50,7 @@
           },
           app: {
             title: '手机应用类',
+            last: true,
             list: [{
               name: '91助手',
               url: 'http://weixin.com'
