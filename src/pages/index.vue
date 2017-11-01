@@ -32,7 +32,9 @@
             <h2>{{ item.title }}</h2>
             <p>{{ item.description }}</p>
             <div class="index-board-button">
-              <div class="button">立即购买</div>
+              <div class="index-board-button">
+                <router-link class="button" :to="{path: 'detail/' + item.toKey}">立即购买</router-link>
+              </div>
             </div>
           </div>
         </div>
@@ -45,6 +47,29 @@
   export default {
     data () {
       return {
+        invTime: 2000,
+        slides: [
+          {
+            src: require('../assets/slideShow/pic1.jpg'),
+            title: 'xxx1',
+            href: 'detail/analysis'
+          },
+          {
+            src: require('../assets/slideShow/pic2.jpg'),
+            title: 'xxx2',
+            href: 'detail/count'
+          },
+          {
+            src: require('../assets/slideShow/pic3.jpg'),
+            title: 'xxx3',
+            href: 'http://xxx.xxx.com'
+          },
+          {
+            src: require('../assets/slideShow/pic4.jpg'),
+            title: 'xxx4',
+            href: 'detail/forecast'
+          }
+        ],
         boardList: [
           {
             title: '开放产品',
