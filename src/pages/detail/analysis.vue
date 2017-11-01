@@ -122,7 +122,7 @@
   import Dialog from '../../components/base/dialog'
   import BankChooser from '../../components/bankChooser'
   import CheckOrder from '../../components/checkOrder'
-//  import _ from 'lodash'
+  import _ from 'lodash'
   export default {
     components: {
       VSelection,
@@ -195,19 +195,19 @@
         this.getPrice()
       },
       getPrice () {
-//        let buyVersionsArray = _.map(this.versions, (item) => {
-//          return item.value
-//        })
-//        let reqParams = {
-//          buyNumber: this.buyNum,
-//          buyType: this.buyType.value,
-//          period: this.period.value,
-//          version: buyVersionsArray.join(',')
-//        }
-//        this.$http.post('/api/getPrice', reqParams)
-//          .then((res) => {
-//            this.price = res.data.amount
-//          })
+        let buyVersionsArray = _.map(this.versions, (item) => {
+          return item.value
+        })
+        let reqParams = {
+          buyNumber: this.buyNum,
+          buyType: this.buyType.value,
+          period: this.period.value,
+          version: buyVersionsArray.join(',')
+        }
+        this.$http.post('/api/getPrice', reqParams)
+          .then((res) => {
+            this.price = res.data.amount
+          })
       },
       showPayDialog () {
         this.isShowPayDialog = true
@@ -223,28 +223,28 @@
       },
       onChangeBanks (bankObj) {
         this.bankId = bankObj.id
+      },
+      confirmBuy () {
+        let buyVersionsArray = _.map(this.versions, (item) => {
+          return item.value
+        })
+        let reqParams = {
+          buyNumber: this.buyNum,
+          buyType: this.buyType.value,
+          period: this.period.value,
+          version: buyVersionsArray.join(','),
+          bankId: this.bankId
+        }
+        this.$http.post('/api/createOrder', reqParams)
+          .then((res) => {
+            this.orderId = res.data.orderId
+            this.isShowCheckOrder = true
+            this.isShowPayDialog = false
+          }, (err) => {
+            this.isShowBuyDialog = false
+            this.isShowErrDialog = true
+          })
       }
-//      confirmBuy () {
-//        let buyVersionsArray = _.map(this.versions, (item) => {
-//          return item.value
-//        })
-//        let reqParams = {
-//          buyNumber: this.buyNum,
-//          buyType: this.buyType.value,
-//          period: this.period.value,
-//          version: buyVersionsArray.join(','),
-//          bankId: this.bankId
-//        }
-//        this.$http.post('/api/createOrder', reqParams)
-//          .then((res) => {
-//            this.orderId = res.data.orderId
-//            this.isShowCheckOrder = true
-//            this.isShowPayDialog = false
-//          }, (err) => {
-//            this.isShowBuyDialog = false
-//            this.isShowErrDialog = true
-//          })
-//      }
     },
     mounted () {
       this.buyNum = 1
