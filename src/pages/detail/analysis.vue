@@ -194,7 +194,7 @@
         this[attr] = val
         this.getPrice()
       },
-//      getPrice () {
+      getPrice () {
 //        let buyVersionsArray = _.map(this.versions, (item) => {
 //          return item.value
 //        })
@@ -208,7 +208,7 @@
 //          .then((res) => {
 //            this.price = res.data.amount
 //          })
-//      },
+      },
       showPayDialog () {
         this.isShowPayDialog = true
       },

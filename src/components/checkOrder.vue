@@ -40,7 +40,7 @@ export default {
     }
   },
   methods: {
-//    checkStatus () {
+    checkStatus () {
 //      this.$http.post('/api/checkOrder', {
 //        orderId: this.orderId
 //      })
@@ -51,7 +51,7 @@ export default {
 //        this.isShowFailDialog = true
 //        this.$emit('on-close-check-dialog')
 //      })
-//    },
+    },
     toOrderList () {
       this.$router.push({path: '/orderList'})
     }
