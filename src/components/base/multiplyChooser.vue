@@ -8,6 +8,7 @@
           :class="{active: checkActive(index)}"
           >{{ item.label }}</li>
         </ul>
+      </div>
     </div>
 </template>
 
@@ -31,8 +32,9 @@ export default {
   methods: {
     toggleSelection (index) {
       if (this.nowIndexes.indexOf(index) === -1) {
-        this.nowIndexes.push(index)
-      } else {
+        this.nowIndexes.push(index)  
+      }
+      else {
         this.nowIndexes = _.remove(this.nowIndexes, (idx) => {
           return idx !== index
         })
